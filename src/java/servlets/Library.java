@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import session.BookFacade;
 import session.HistoryFacade;
 import session.ReaderFacade;
+import util.EncriptPass;
 import util.PageReturner;
 
 /**
@@ -79,10 +80,12 @@ public class Library extends HttpServlet {
                 request.setAttribute("info", "Неправильно введен логин или пароль");
                 request.getRequestDispatcher(PageReturner.getPage("welcom")).forward(request, response);
                 break;
-            }
-            Reader reader = new Reader(name, surname, phone, city, login, password1);
+            } 
+            EncriptPass ep = new EncriptPass();
+            String salts = ep.createSalts();
+            String encriptPass = ep.setEncriptPass(password1, salts);
+            Reader reader = new Reader(name, surname, phone, city, login,encriptPass,salts); 
             readerFacade.create(reader);
-//            UserRoles 
             request.setAttribute("reader", reader);
             request.getRequestDispatcher(PageReturner.getPage("welcom")).forward(request, response);
                 break;
@@ -196,5 +199,7 @@ public class Library extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
+   
 
 }

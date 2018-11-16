@@ -25,22 +25,22 @@ public class Reader {
     @Column(unique = true)
     private String login;
     private String password;
-    private String Salts;
+    private String salts;
 
     public Reader() {
     }
 
-    public Reader( String name, String surname, String phone, String city, String login, String password) {
-//        this.id = id;
+    public Reader(String name, String surname, String phone, String city, String login, String password, String salts) {
         this.name = name;
         this.surname = surname;
         this.phone = phone;
         this.city = city;
         this.login = login;
         this.password = password;
-
+        this.salts = salts;
     }
 
+  
     public String getCity() {
         return city;
     }
@@ -98,12 +98,13 @@ public class Reader {
     }
 
     public String getSalts() {
-        return Salts;
+        return salts;
     }
 
-    public void setSalts(String Salts) {
-        this.Salts = Salts;
+    public void setSalts(String salts) {
+        this.salts = salts;
     }
+    
 
     @Override
     public int hashCode() {
@@ -140,7 +141,8 @@ public class Reader {
 //    }
     @Override
     public String toString() {
-        return "Reader{" + "id=" + id + ", name=" + name + ", surname=" + surname + ", phone=" + phone + ", city=" + city + ", login=" + login + ", password=" + password + ", Salts=" + Salts + '}';
+        return "Reader{" + "id=" + id + ", name=" + name + ", surname=" + surname + ", phone=" + phone + ", city=" + city + ", login=" + login + ", password=" + password + ", Salts=" + salts + '}';
     }
+
 
 }

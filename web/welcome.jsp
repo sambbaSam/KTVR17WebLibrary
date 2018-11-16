@@ -14,6 +14,9 @@
     <body>
         <h1>Навигация по сайту</h1>
         ${textToPage}<br>
+        <p><a href="showLogin">Войти в систему</a></p>
+        <p><a href="logout">Выйти из системы</a></p>
+        <hr>
         <p><a href="newBook">Добавить книгу</a></p>
         <p><a href="newReader">Добавить читателя</a></p>
         <p><a href="showBooks">Список книг</a></p>
@@ -25,7 +28,7 @@
         Добавлен читатель:  ${reader.name}  ${reader.surname}<br>
          <hr>
          <p>Для администратора:</p>
-        <p><button><a href="newRole">New Role</a></button></p>
-        <p><button><a href="editUserRoles">Users Role</a></button></p>
+        <!---<p><button><a href="newRole">New Role</a></button></p>--->
+        <p><button><a href="editUserRoles">Назначение ролей пользователям</a></button></p>
     </body>
 </html>
